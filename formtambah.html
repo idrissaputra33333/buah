@@ -11,41 +11,46 @@
 </head>
 
 <body>
-<h1>Fomulir Tambah Buah</h1>
+<h1>Formulir Tambah Buah</h1>
+
+ <form class="mb-3">
+    <div class="mb-3">
+      <label class="form-label">Nama Buah</label>
+      <input type="text" class="form-control" id="inputnama">
+    </div>
+    <div class="mb-3"></div>
+     <label class="form-label">Warna</label>
+     <input type="text" class="form-control" id="inputwarna">
+     </div>
+       <div class="mb-3"></div>
+     <label class="form-label">Harga</label>
+     <input type="text" class="form-control" id="inputharga">
+     <div class="mb-3">
+       
+     </div>
+     <button class="btn btn-primary" id="tombolsimpan">simpan</button>
+  </form>
+  
+    <script type="module">
+    import { tambahBuah } from "./main.js";
+    
+    $(document).ready(async function() {
+      // ambil data dari formulir
+      
+      // ketika tombol tambah di pencet
+      $("#tombolsimpan").click(async function(event) {
+        event.preventDefault()
+        
+        let nama = $("#inputnama").val()
+      let warna = $("#inputwarna").val()
+      let harga = $("#inputharga").val()
+      
+        await tambahBuah(nama, warna, harga)
+        window.location.href ="index.html"
+      });
+   });
+  </script>
+  
 </body>
 
 </html>
-  <form class="mb-3">
-    <div class="mb-3">
-      <label class="form-label">Nama Buah</label>
-      <input type="text" class="form-control" id="inputnama" />
-    </div>
-    <div class="mb-3">
-      <label class="form-label">warna</label>
-      <input type="text" class="form-control" id="inputwarna" />
-    </div>
-    <div class="mb-3">
-      <button class="btn btn-primary" id="tombolsimpan">Harga</button>
-    </div>
-  </form>
-
-  <a href="index.html">Kembali ke daftar siswa</a>
-
-  <script type="module">
-    import { tambahSiswa } from './main.js';
-
-    $(document).ready(async function() {
-      // ketika tombol tambah di pencet
-      $('#tombolsimpan').click(async function(event) {
-        event.preventDefault()
-
-        // ambil data dari formulir
-        let nama = $('#inputnama').val()
-        let alamat = $('#inputalamat').val()
-
-        await tambahSiswa(nama, alamat)
-        window.location.href = 'index.html'
-      });
-    });
-  </script>
-</body>
